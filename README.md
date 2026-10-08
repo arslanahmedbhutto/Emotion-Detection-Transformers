@@ -7,6 +7,8 @@ Official code, trained models, and results for the paper:
 > *ILMA Journal of Technology & Software Management (IJTSM)*, Vol. 6, Issue 1
 >
 > 📄 **Paper:** https://ijtsm.ilmauniversity.edu.pk/arc/Vol6/i1p1  ·  [PDF in this repo](paper/Comparative_Analysis_DistilBERT_XLNet_RoBERTa_BigBird_Emotion_Detection.pdf)
+>
+> 🤗 **Models:** [DistilBERT](https://huggingface.co/arslanahmed3/emotion-distilbert) · [XLNet](https://huggingface.co/arslanahmed3/emotion-xlnet) · [RoBERTa](https://huggingface.co/arslanahmed3/emotion-roberta) · [BigBird](https://huggingface.co/arslanahmed3/emotion-bigbird)
 
 We fine-tune four Transformer models on one shared dataset and pipeline to classify text into six emotions: **anger, fear, joy, love, sadness, surprise**. We then compare them on accuracy, precision, recall, F1, and confusion matrices. A small Flask web app lets you try each trained model on your own text.
 
@@ -96,6 +98,7 @@ All training ran on Google Colab GPUs.
 ```
 ├── app.py                     # Flask web demo (all 4 models)
 ├── test_models.py             # Interactive CLI: compare all models on the same input
+├── download_models.py         # Fetch the trained models from the Hugging Face Hub
 ├── templates/index.html       # Web UI
 ├── notebooks/
 │   ├── 01_DistilBERT.ipynb    # Final training + evaluation (20 epochs)
@@ -103,7 +106,7 @@ All training ran on Google Colab GPUs.
 │   ├── 03_RoBERTa.ipynb
 │   ├── 04_BigBird.ipynb       # 6 epochs, PyTorch
 │   └── early_experiments/     # Earlier 5-epoch DistilBERT & XLNet runs
-├── models/                    # Fine-tuned weights (not tracked in git — see models/README.md)
+├── models/                    # Fine-tuned weights (download from Hugging Face; see models/README.md)
 ├── data/                      # train / val / test splits
 ├── results/
 │   ├── figures/               # Clean figures used in the paper
@@ -133,7 +136,20 @@ pip install -r requirements.txt
 
 ### 2. Get the trained models
 
-Each model file is 250–500 MB, which is over GitHub's 100 MB per-file limit, so the weights are not in git. Put them under `models/` as described in [`models/README.md`](models/README.md). You can also retrain them with the notebooks.
+The fine-tuned models are on the **Hugging Face Hub**. Each is 250–500 MB, which is too large for GitHub. Download all four into `models/` with:
+
+```bash
+python download_models.py
+```
+
+| Model | Hugging Face |
+|-------|--------------|
+| DistilBERT | [arslanahmed3/emotion-distilbert](https://huggingface.co/arslanahmed3/emotion-distilbert) |
+| XLNet      | [arslanahmed3/emotion-xlnet](https://huggingface.co/arslanahmed3/emotion-xlnet) |
+| RoBERTa    | [arslanahmed3/emotion-roberta](https://huggingface.co/arslanahmed3/emotion-roberta) |
+| BigBird    | [arslanahmed3/emotion-bigbird](https://huggingface.co/arslanahmed3/emotion-bigbird) |
+
+You can also retrain them with the notebooks. See [`models/README.md`](models/README.md).
 
 ### 3. Run the web app
 

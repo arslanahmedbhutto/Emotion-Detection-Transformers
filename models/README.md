@@ -19,7 +19,22 @@ models/
 
 ## Ways to get the weights
 
-- **Download:** <!-- TODO: add a link to the Hugging Face Hub / GitHub Release / Google Drive -->
+- **Download (recommended):** the models are on the Hugging Face Hub. From the repo root, run:
+
+  ```bash
+  python download_models.py            # all four models (~1.7 GB)
+  python download_models.py roberta    # or just one
+  ```
+
+  | Model | Hugging Face |
+  |-------|--------------|
+  | DistilBERT | [arslanahmed3/emotion-distilbert](https://huggingface.co/arslanahmed3/emotion-distilbert) |
+  | XLNet      | [arslanahmed3/emotion-xlnet](https://huggingface.co/arslanahmed3/emotion-xlnet) |
+  | RoBERTa    | [arslanahmed3/emotion-roberta](https://huggingface.co/arslanahmed3/emotion-roberta) |
+  | BigBird    | [arslanahmed3/emotion-bigbird](https://huggingface.co/arslanahmed3/emotion-bigbird) |
+
+  You can also load them directly in code with `from_pretrained("arslanahmed3/emotion-roberta")`. See each model card for an example.
+
 - **Retrain:** run the notebooks in `notebooks/` and save each model into the matching folder with `model.save_pretrained(...)` and `tokenizer.save_pretrained(...)`.
 
 `early_experiments/` (git-ignored) holds the earlier 5-epoch DistilBERT and XLNet checkpoints from `notebooks/early_experiments/`.
