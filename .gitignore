@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Trained model weights (too large for GitHub; see models/README.md)
+*.h5
+*.safetensors
+*.bin
+*.pt
+*.ckpt
+models/early_experiments/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

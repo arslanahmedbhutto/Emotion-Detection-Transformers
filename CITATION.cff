@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this code or the trained models, please cite the paper below."
+title: "Emotion Detection in Conversational Text: DistilBERT vs XLNet vs RoBERTa vs BigBird"
+authors:
+  - family-names: Ahmed
+    given-names: Arslan
+    affiliation: Sukkur IBA University
+  - name: Barkha
+    affiliation: Sukkur IBA University
+  - family-names: Kanjwani
+    given-names: Tushar
+    affiliation: Sukkur IBA University
+  - family-names: Nasim
+    given-names: Shahzad
+    affiliation: The Begum Nusrat Bhutto Women University, Sukkur
+preferred-citation:
+  type: article
+  title: "Comparative Analysis of DistilBERT, XLNet, RoBERTa & BigBird for Emotion Detection in Conversational Text"
+  authors:
+    - family-names: Ahmed
+      given-names: Arslan
+    - name: Barkha
+    - family-names: Kanjwani
+      given-names: Tushar
+    - family-names: Nasim
+      given-names: Shahzad
+  journal: "ILMA Journal of Technology & Software Management (IJTSM)"
+  volume: 6
+  issue: 1
+  url: "https://ijtsm.ilmauniversity.edu.pk/arc/Vol6/i1p1"

@@ -1,0 +1,14 @@
+# Python 3.10 / 3.11
+# transformers must stay on 4.x: version 5 removed the TensorFlow model classes
+# used by the DistilBERT, XLNet and RoBERTa checkpoints.
+transformers>=4.40,<4.45
+tensorflow==2.15.1
+torch>=2.1
+sentencepiece
+flask
+numpy<2
+pandas
+scikit-learn
+matplotlib
+seaborn
+datasets
