@@ -4,7 +4,7 @@ Official code, trained models, and results for the paper:
 
 > **Comparative Analysis of DistilBERT, XLNet, RoBERTa & BigBird for Emotion Detection in Conversational Text**
 > Arslan Ahmed, Barkha, Tushar Kanjwani, Shahzad Nasim
-> *ILMA Journal of Technology & Software Management (IJTSM)*, Vol. 6, Issue 1
+> *ILMA Journal of Technology & Software Management (IJTSM)*, Vol. 6, Issue 1, pp. 1–12, 2025
 >
 > 📄 **Paper:** https://ijtsm.ilmauniversity.edu.pk/arc/Vol6/i1p1  ·  [PDF in this repo](paper/Comparative_Analysis_DistilBERT_XLNet_RoBERTa_BigBird_Emotion_Detection.pdf)
 >
@@ -111,7 +111,7 @@ All training ran on Google Colab GPUs.
 ├── results/
 │   ├── figures/               # Clean figures used in the paper
 │   ├── screenshots/           # Notebook output screenshots (model summaries, epochs, reports)
-│   ├── demo/                  # Web app screenshots
+│   ├── demo/                  # Web app screenshots (all 4 models)
 │   └── early_experiments/     # Figures from the 5-epoch runs
 └── paper/                     # Published paper (PDF)
 ```
@@ -122,7 +122,7 @@ All training ran on Google Colab GPUs.
 
 ### 1. Install
 
-TensorFlow 2.15 needs **Python 3.10 or 3.11**.
+Tested on **Python 3.13** (Windows).
 
 ```bash
 git clone https://github.com/arslanahmedbhutto/Emotion-Detection-Transformers.git
@@ -159,12 +159,13 @@ python app.py
 
 Open http://127.0.0.1:5000, type a sentence, pick a model, and click **Analyze Emotion**.
 
-<p align="center">
-  <img src="results/demo/web_app_home.jpg" width="45%" alt="Web app home screen">
-  <img src="results/demo/web_app_prediction_distilbert.jpg" width="45%" alt="DistilBERT prediction: anger">
-</p>
+| DistilBERT: *"i am going to kill him"* | XLNet: *"i am so scared of walking home alone at night"* |
+|:---:|:---:|
+| ![DistilBERT prediction](results/demo/web_app_distilbert.png) | ![XLNet prediction](results/demo/web_app_xlnet.png) |
+| **RoBERTa:** *"i was amazed and shocked by the news"* | **BigBird:** *"i feel so lonely and miserable"* |
+| ![RoBERTa prediction](results/demo/web_app_roberta.png) | ![BigBird prediction](results/demo/web_app_bigbird.png) |
 
-*Example: DistilBERT classifies "i am going to kill him" as **anger** with 98.1 % confidence. "Confidence Levels" lists the probability of each class in the order anger, fear, joy, love, sadness, surprise.*
+Each result shows the predicted emotion and the model's confidence for all six classes.
 
 ### 4. Compare all models from the terminal
 
@@ -190,15 +191,21 @@ Open the notebooks in `notebooks/`. They were written for Google Colab, so chang
 If you use this code or the trained models, please cite:
 
 ```bibtex
-@article{ahmed_emotion_transformers_ijtsm,
+@article{ahmed2025emotion,
   title   = {Comparative Analysis of DistilBERT, XLNet, RoBERTa \& BigBird for Emotion Detection in Conversational Text},
   author  = {Ahmed, Arslan and Barkha and Kanjwani, Tushar and Nasim, Shahzad},
   journal = {ILMA Journal of Technology \& Software Management (IJTSM)},
   volume  = {6},
   number  = {1},
+  pages   = {1--12},
+  year    = {2025},
   url     = {https://ijtsm.ilmauniversity.edu.pk/arc/Vol6/i1p1}
 }
 ```
+
+## License
+
+The code is released under the [MIT License](LICENSE). The dataset is subject to its [original Kaggle terms](https://www.kaggle.com/datasets/praveengovi/emotions-dataset-for-nlp), and the paper's copyright is held as stated by the publisher.
 
 ## Authors
 

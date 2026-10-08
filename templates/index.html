@@ -67,6 +67,37 @@
                 text-align: center;
                 visibility: hidden;
             }
+            .scores {
+                margin: 0 auto 16px;
+                max-width: 320px;
+            }
+            .score-row {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin: 4px 0;
+                font-size: 14px;
+            }
+            .score-label {
+                width: 70px;
+                text-align: right;
+            }
+            .score-bar {
+                flex: 1;
+                height: 10px;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 5px;
+                overflow: hidden;
+            }
+            .score-bar span {
+                display: block;
+                height: 100%;
+                background: #4CAF50;
+            }
+            .score-pct {
+                width: 52px;
+                text-align: right;
+            }
         </style>
         <script>
             function displayLoading() {
@@ -91,10 +122,10 @@
             
             <label for="model_type">Choose a model:</label>
             <select name="model_type" id="model_type">
-                <option value="distilbert">DistilBert</option>
-                <option value="xlnet">XLNet</option>
-                <option value="bigbird">BigBird</option>
-                <option value="roberta">RoBERTa</option>
+                <option value="distilbert" {% if model_type == 'distilbert' %}selected{% endif %}>DistilBert</option>
+                <option value="xlnet" {% if model_type == 'xlnet' %}selected{% endif %}>XLNet</option>
+                <option value="bigbird" {% if model_type == 'bigbird' %}selected{% endif %}>BigBird</option>
+                <option value="roberta" {% if model_type == 'roberta' %}selected{% endif %}>RoBERTa</option>
             </select>
             
             <button type="submit">Analyze Emotion</button>
@@ -104,7 +135,18 @@
             <div class="results">
                 <h2>Result:</h2>
                 <p>Predicted Emotion: <strong>{{ predicted_class }}</strong></p>
-                <p>Confidence Levels: <strong>{{ confidence }}</strong></p>
+                {% if scores %}
+                <p>Confidence Levels:</p>
+                <div class="scores">
+                    {% for label, pct in scores %}
+                    <div class="score-row">
+                        <span class="score-label">{{ label }}</span>
+                        <span class="score-bar"><span style="width: {{ '%.1f' % pct }}%"></span></span>
+                        <span class="score-pct">{{ '%.1f' % pct }}%</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
                 <p>Input Text: <strong>{{ text }}</strong></p>
                 <p>Model Used: <strong>{{ model_type }}</strong></p>
             </div>

@@ -1,5 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code or the trained models, please cite the paper below."
+license: MIT
 title: "Emotion Detection in Conversational Text: DistilBERT vs XLNet vs RoBERTa vs BigBird"
 authors:
   - family-names: Ahmed
@@ -27,4 +28,7 @@ preferred-citation:
   journal: "ILMA Journal of Technology & Software Management (IJTSM)"
   volume: 6
   issue: 1
+  start: 1
+  end: 12
+  year: 2025
   url: "https://ijtsm.ilmauniversity.edu.pk/arc/Vol6/i1p1"

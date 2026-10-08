@@ -93,7 +93,12 @@ def index():
         text = request.form['text']
         model_type = request.form['model_type']
         predicted_class, confidence = predict_emotion(text, model_type)
-        return render_template('index.html', predicted_class=predicted_class, confidence=confidence, text=text, model_type=model_type)
+        scores = None
+        if confidence is not None:
+            # (label, percent) pairs, highest first
+            scores = sorted(((label_map[i], float(p) * 100) for i, p in enumerate(confidence)),
+                            key=lambda s: s[1], reverse=True)
+        return render_template('index.html', predicted_class=predicted_class, scores=scores, text=text, model_type=model_type)
     else:
         return render_template('index.html')
 

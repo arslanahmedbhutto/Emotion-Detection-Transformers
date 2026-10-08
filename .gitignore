@@ -15,8 +15,11 @@ env/
 models/early_experiments/
 
 # Editors / OS
-.vscode/
 .idea/
 .DS_Store
 Thumbs.db
 desktop.ini
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
