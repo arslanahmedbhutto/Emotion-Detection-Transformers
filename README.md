@@ -108,6 +108,7 @@ All training ran on Google Colab GPUs.
 ├── results/
 │   ├── figures/               # Clean figures used in the paper
 │   ├── screenshots/           # Notebook output screenshots (model summaries, epochs, reports)
+│   ├── demo/                  # Web app screenshots
 │   └── early_experiments/     # Figures from the 5-epoch runs
 └── paper/                     # Published paper (PDF)
 ```
@@ -141,6 +142,13 @@ python app.py
 ```
 
 Open http://127.0.0.1:5000, type a sentence, pick a model, and click **Analyze Emotion**.
+
+<p align="center">
+  <img src="results/demo/web_app_home.jpg" width="45%" alt="Web app home screen">
+  <img src="results/demo/web_app_prediction_distilbert.jpg" width="45%" alt="DistilBERT prediction: anger">
+</p>
+
+*Example: DistilBERT classifies "i am going to kill him" as **anger** with 98.1 % confidence. "Confidence Levels" lists the probability of each class in the order anger, fear, joy, love, sadness, surprise.*
 
 ### 4. Compare all models from the terminal
 
