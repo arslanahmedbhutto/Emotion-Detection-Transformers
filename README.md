@@ -122,8 +122,8 @@ All training ran on Google Colab GPUs.
 TensorFlow 2.15 needs **Python 3.10 or 3.11**.
 
 ```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/arslanahmedbhutto/Emotion-Detection-Transformers.git
+cd Emotion-Detection-Transformers
 python -m venv .venv
 # Windows: .venv\Scripts\activate     macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
